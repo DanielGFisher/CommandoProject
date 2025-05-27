@@ -4,7 +4,7 @@ namespace CommandoOOP.Models
 {
     public class Paratrooper : Commando
     {
-        public Paratrooper(string name,string codename) : base(name, codename)
+        public Paratrooper() : base()
         {
 
         }

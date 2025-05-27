@@ -4,7 +4,7 @@ namespace CommandoOOP.Models
 {
     public class AmphibiousCommando : Commando
     {
-        public AmphibiousCommando(string name,string codename) : base(name, codename)
+        public AmphibiousCommando() : base()
         {
        
         }
