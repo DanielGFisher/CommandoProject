@@ -1,17 +1,22 @@
 ﻿using System;
 
-namespace Commando.Models
+namespace CommandoOOP.Models
 {
     public class AmphibiousCommando : Commando
     {
-        public AmphibiousCommando(string name, List<string>  tools) : base(name,tools)
+        public AmphibiousCommando(string name,string codename) : base(name, codename)
         {
-            Tools = tools;
+       
         }
 
-        public static void Dive()
+        public void Dive()
         {
-            Console.WriteLine($"{CodeName} is diving");
+            Console.WriteLine($"{_CodeName} is diving");
+        }
+
+        public override void Attack()
+        {
+            Console.WriteLine($"{_CodeName} is engaging from the waves");
         }
     }
 }

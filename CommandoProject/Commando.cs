@@ -1,44 +1,43 @@
 ﻿using System;
-using System.ComponentModel.Design;
 
-namespace Commando.Models
+namespace CommandoOOP.Models
 {
     public class Commando
     {
-        private string Name;
-        private string CodeName { get; set; }
+        private string _Name;
+        protected string _CodeName { get; set; }
         public List<string> Tools { get; set; }
         public string CurrentStatus { get; set; }
 
-        public Commando(string name, List<string> tools)
+        public Commando(string name,string codename)
         {
-            Name = name;
-            Tools = tools;
+            _Name = name;
+            _CodeName = codename;
+            Tools = new List<string>{ "Gun", "Grenade", "Knapsack", "Water", "Rations" };
             CurrentStatus = "N/A";
         }
-
         public string NameReveal(string commanderRank)
         {
-            if (commanderRank == "GENERAL") return $"Name: {Name}"; 
-            else if (commanderRank == "COLONEL") return $"Code Name: {CodeName}";
+            if (commanderRank == "GENERAL") return $"Name: {_Name}"; 
+            else if (commanderRank == "COLONEL") return $"Code Name: {_CodeName}";
             else return "Rank inssuficient";   
         }
 
         public void Walk()
         {
-            Console.WriteLine($"{CodeName} is walking");
+            Console.WriteLine($"{_CodeName} is walking");
             CurrentStatus = "Walking";
         }
 
         public void Hide()
         {
-            Console.WriteLine($"{CodeName} is hiding");
+            Console.WriteLine($"{_CodeName} is hiding");
             CurrentStatus = "Hiding";
         }
 
-        public void Attack()
+        public virtual void Attack()
         {
-            Console.WriteLine($"{CodeName} is attacking");
+            Console.WriteLine($"{_CodeName} is attacking");
             CurrentStatus = "In combat";
         }
     }

@@ -1,18 +1,22 @@
 ﻿using System;
 
-namespace Commando.Models
+namespace CommandoOOP.Models
 {
     public class Paratrooper : Commando
     {
-        public Paratrooper(string name, List<string> tools) : base(name,tools)
+        public Paratrooper(string name,string codename) : base(name, codename)
         {
-            Tools = tools;
+
         }
 
         public void Parachute()
         {
-            Console.WriteLine($"{CodeName} is parachuting");
+            Console.WriteLine($"{_CodeName} is parachuting");
             CurrentStatus = "In the air";
+        }
+        public override void Attack()
+        {
+            Console.WriteLine($"{_CodeName} is engaging from the skies");
         }
     }
 }
