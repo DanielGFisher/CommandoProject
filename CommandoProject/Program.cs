@@ -1,12 +1,12 @@
-﻿using Commando.Models;
+﻿using CommandoOOP.Models;
 
-namespace Commando
+namespace CommandoOOP
 {
     public static class Program
     {
         public static void Main(string[] args)
         {
-
+            Console.WriteLine(WeaponsFactory.CreateWeapon("M-16", "Colt", 29)); 
         }
     }
 }
