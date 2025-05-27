@@ -1,20 +1,27 @@
 ﻿using System;
+using System.ComponentModel.Design;
 
 namespace Commando.Models
 {
     public class Commando
     {
-        public string Name { get; set; }
-        public string CodeName { get; set; }
+        private string Name;
+        private string CodeName { get; set; }
         public List<string> Tools { get; set; }
         public string CurrentStatus { get; set; }
 
-        public Commando(string name, string codename, List<string> tools, string status)
+        public Commando(string name, List<string> tools)
         {
             Name = name;
-            CodeName = codename;
             Tools = tools;
-            CurrentStatus = status;
+            CurrentStatus = "N/A";
+        }
+
+        public string NameReveal(string commanderRank)
+        {
+            if (commanderRank == "GENERAL") return $"Name: {Name}"; 
+            else if (commanderRank == "COLONEL") return $"Code Name: {CodeName}";
+            else return "Rank inssuficient";   
         }
 
         public void Walk()
@@ -32,7 +39,7 @@ namespace Commando.Models
         public void Attack()
         {
             Console.WriteLine($"{CodeName} is attacking");
-            CurrentStatus = "Hiding";
+            CurrentStatus = "In combat";
         }
     }
 }
