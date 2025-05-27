@@ -6,7 +6,7 @@ namespace Commando.Models
     {
         public Paratrooper(string name, List<string> tools) : base(name,tools)
         {
-           
+            Tools = tools;
         }
 
         public void Parachute()
