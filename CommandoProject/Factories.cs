@@ -4,64 +4,60 @@ namespace CommandoOOP.Models
 {
     public class WeaponsFactory
     {
-        public List<Weapon> Weapons = new List<Weapon>();
-    }
-    public Weapon CreateWeapon(string name, string company, int ammo)
+        public static List<Weapon> Weapons = new List<Weapon>();
+        public static Weapon CreateWeapon(string name, string company, int ammo)
         {
             Weapon weapon = new Weapon(name, company, ammo);
-            Weapons.Add(weapon)
+            Weapons.Add(weapon);
 
-        return weapon;
+            return weapon;
         }
+    }
 
     public class CommandoFactory
     {
-        public List<Commando> Operators = new List<Commando>();
-    }
-    
-    public Commando CreateCommando(string nameInput, string codeNameInput, string typeInput)
+        public static List<Commando> Operators = new List<Commando>();
+
+        public static Commando CreateCommando(string nameInput, string codeNameInput, string typeInput)
         {
             Commando commando;
 
             switch (typeInput)
             {
                 case "Normal":
-                    Commando commando = new Commando(string nameInput, string codeNameInput);
+                    commando = new Commando(nameInput, codeNameInput);
                     break;
 
                 case "Paratrooper":
-                    Paratrooper commando = new Paratrooper(string nameInput, string codeNameInput);
+                    commando = new Paratrooper(nameInput, codeNameInput);
                     break;
 
                 case "Marine":
-                    AmphibiousCommando commando = new AmphibiousCommando(string nameInput, string codeNameInput);
+                    commando = new AmphibiousCommando(nameInput, codeNameInput);
 
                     break;
 
                 default:
                     Console.WriteLine("Invalid Type Input, Creating base commando");
-                    Commando commando = new Commando(string nameInput, string codeNameInput);
+                    commando = new Commando(nameInput, codeNameInput);
                     break;
 
             }
-            Operators.Add(commando)
-        return commando;
+            Operators.Add(commando);
+            return commando;
         }
+    }
 
     public class EnemyFactory
     {
-        public List<Enemy> Enemies = new List<Enemy>();
+        public static List<Enemy> Enemies = new List<Enemy>();
 
-        public Enemy CreateEnemy()
+        public static Enemy CreateEnemy()
         {
             Enemy enemy = new Enemy();
+            Enemies.Add(enemy);
 
-            enemy.Name = Enemy.AddName();
-            enemy.EnemyQuote = Enemy.AddQuote();
-
-            Enemies.Add(enemy)
-
-                return eenemy;
+            return enemy;
         }
     }
 

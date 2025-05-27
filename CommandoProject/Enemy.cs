@@ -1,30 +1,29 @@
 ﻿using System;
-using 
 
 namespace CommandoOOP.Models
 {
     public class Enemy
     {
-        public string Name;
+        public static string Name = AddName();
         public int Health = 100;
         public string Status = "Alive";
-        public string EnemyQuote;
-    }
+        public static string EnemyQuote = AddQuote();
 
-    public static string AddName()
-    {
-        string[] badGuyNames = {"Victor Grimsbane", "Silas Crowe", "Damien Thornhart",
+        public static string AddName()
+        {
+            string[] badGuyNames = {"Victor Grimsbane", "Silas Crowe", "Damien Thornhart",
                 "Lucien Blackmoor", "Kara Vyle", "Gideon Thorne",
                 "Morgana Kreel", "Vlad Vire", "Ezra Grimm", "Nikolai Drex" };
 
-        Random rnd = new Random()
-        Name = badGuyNames[rnd.Next(0,badGuyNames.Length - 1)]
-    }
+            Random rnd = new Random();
+            string Name = badGuyNames[rnd.Next(0, badGuyNames.Length - 1)];
 
-    public static string AddQuote()
-    {
-            string[] badGuyQupotes = {
-             "You can’t stop what’s already begun.", "Heroes are so predictable.", 
+            return Name;
+        }
+
+        public static string AddQuote()
+        {
+            string[] badGuyQuotes = {"You can’t stop what’s already begun.", "Heroes are so predictable.",
              "This world will burn, and I will light the match.", "Power is taken, not given.",
              "I’m not the villain. I’m the solution.",
              "Fear is the only true motivator.", "The end justifies the devastation.",
@@ -33,11 +32,15 @@ namespace CommandoOOP.Models
              "Darkness is where I thrive.", "Every empire begins with a single betrayal.",
              "I offer chaos… and clarity.", "You don't need to understand. You only need to obey.",
              "My patience is thinner than your chances.", "Your fate was sealed the moment you opposed me.",
-             "I don’t lose. I adapt."};
+             "I don’t lose. I adapt."
+             };
 
-            Random rnd = new Random()
-            Name = badGuyQuotes[rnd.Next(0, badGuyNames.Length - 1)]
+            Random rnd = new Random();
+            string Quote = badGuyQuotes[rnd.Next(0, badGuyQuotes.Length - 1)];
+
+            return Quote;
         }
+    }
 }
 
     
