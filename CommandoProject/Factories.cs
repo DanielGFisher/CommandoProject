@@ -18,28 +18,28 @@ namespace CommandoOOP.Models
     {
         public static List<Commando> Operators = new List<Commando>();
 
-        public static Commando CreateCommando(string nameInput, string codeNameInput, string typeInput)
+        public static Commando CreateCommando(string typeInput)
         {
             Commando commando;
 
             switch (typeInput)
             {
                 case "Normal":
-                    commando = new Commando(nameInput, codeNameInput);
+                    commando = new Commando();
                     break;
 
                 case "Paratrooper":
-                    commando = new Paratrooper(nameInput, codeNameInput);
+                    commando = new Paratrooper();
                     break;
 
                 case "Marine":
-                    commando = new AmphibiousCommando(nameInput, codeNameInput);
+                    commando = new AmphibiousCommando();
 
                     break;
 
                 default:
                     Console.WriteLine("Invalid Type Input, Creating base commando");
-                    commando = new Commando(nameInput, codeNameInput);
+                    commando = new Commando();
                     break;
 
             }

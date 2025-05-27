@@ -12,9 +12,7 @@ namespace CommandoOOP.Models
 
         public Game()
         {
-            weaponCreator.CreateWeapon();
-            commandoFactory.CreateCommando();
-            enemyFactory.CreateEnemy();
+
         }
 
     }
