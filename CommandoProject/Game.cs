@@ -1,19 +1,27 @@
-﻿using System
+﻿using System;
 
 using System.Data.Common;
+using System.Runtime.InteropServices.Swift;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CommandoOOP.Models
 {
     public class Game
     {
-        private WeaponsFactory weaponCreator = new WeaponsFactory();
-        private CommandoFactory commandoFactory = new CommandoFactory();
-        private EnemyFactory enemyFactory = new EnemyFactory();
+        public WeaponFactory weaponCreator;
+        private CommandoFactory commandoFactory;
+        private EnemyFactory enemyFactory;
 
-        public Game()
+        public Game(WeaponFactory weaponProduction, CommandoFactory commandoProduction, EnemyFactory enemyProduction)
         {
-
+            weaponCreator = weaponProduction;
+            commandoFactory = commandoProduction;
+            enemyFactory = enemyProduction;
         }
-
+        
+        public Weapon LoadWeapon()
+        {
+            return weaponCreator.CreateWeapon("M-16", "COLT", 29);
+        }
     }
 }

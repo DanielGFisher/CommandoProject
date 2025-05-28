@@ -1,24 +1,51 @@
 ﻿using System;
+using System.Xml.Linq;
 
 namespace CommandoOOP.Models
 {
-    public class WeaponsFactory
+    public class HandToHandFactory
     {
-        public static List<Weapon> Weapons = new List<Weapon>();
-        public static Weapon CreateWeapon(string name, string company, int ammo)
-        {
-            Weapon weapon = new Weapon(name, company, ammo);
-            Weapons.Add(weapon);
+        public List<HandToHand> H2HWeapons = new List<HandToHand>();
 
+        public HandToHand CreateBreakableWeapon(string name, string colour, float weight, int maxHit, string typeInput)
+        {
+            HandToHand weapon;
+
+            switch (typeInput)
+            {
+                case "Knife":
+                    weapon = new Knife(name, colour, weight, maxHit);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid Type Input, Creating stone");
+                    weapon = new Stone(name, colour, weight, maxHit);
+                    break;
+
+            }
+            H2HWeapons.Add(weapon);
             return weapon;
         }
     }
 
+    public class WeaponFactory
+    {
+        public List<Weapon> weapons = new List<Weapon>();
+
+        public Weapon CreateWeapon(string name, string company, int ammo)
+        {
+            Weapon weapon = new Weapon(name, company, ammo);
+            weapons.Add(weapon);
+            return weapon;
+        }
+    }
+
+
     public class CommandoFactory
     {
-        public static List<Commando> Operators = new List<Commando>();
+        public List<Commando> Operators = new List<Commando>();
 
-        public static Commando CreateCommando(string typeInput)
+        public Commando CreateCommando(string typeInput)
         {
             Commando commando;
 
